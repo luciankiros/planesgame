@@ -1,0 +1,646 @@
+﻿.app {
+    width: 900px; 
+    margin: auto; 
+    margin-top: 50px; 
+    text-align: center
+}
+
+.start-page {
+    width: 300px;
+    margin: auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.start-page .btn, .start-page .form-control {
+    width: 100%;
+}
+
+.start-page .space-max {
+    height: 30px;
+}
+
+.start-page .space-min {
+    height: 5px;
+}
+
+table.game td.module {
+    width: 450px;
+    vertical-align: top;
+}
+
+/* general board */
+table.board {
+    width: 440px;
+    height: 440px;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+table.board td.numbers {
+    width: 40px;
+}
+
+table.board td.cells{
+    width: 400px;
+}
+
+table.board td {
+    width: 40px;
+    height: 40px;
+}
+
+table.board td.letter, table.board td.number {
+    border: 1px solid #bbb;
+    color: #999;
+}
+
+table.board td.letter {
+    border-bottom: 0 solid #666;
+}
+
+table.board td.number {
+    border-right: 0 solid #666;
+}
+
+table.board td.cell {
+    border: 1px solid #666;
+}
+
+table.board td.cell.enabled {
+    cursor: pointer;
+}
+
+/* my board */
+table.board.my-board td.cell.invalid {
+    background-color: red;
+}
+
+table.board.my-board td.cell.green {
+    background-color: green;
+}
+
+table.board.my-board td.cell.blue {
+    background-color: blue;
+}
+
+table.board.my-board td.cell.purple {
+    background-color: purple;
+}
+
+table.board.my-board td.cell.regularhit:after {
+    content: "x";
+    font-size: 20px;
+    color: red;
+
+    -webkit-animation-name: highlight-regular-hit;
+    -webkit-animation-duration: 0.25s;
+    -webkit-animation-iteration-count: 7;
+    -webkit-animation-direction: normal;
+
+    -moz-animation-name: highlight-regular-hit;
+    -moz-animation-duration: 0.25s;
+    -moz-animation-iteration-count: 7;
+    -moz-animation-direction: normal;
+
+    animation-name: highlight-regular-hit;
+    animation-duration: 0.25s;
+    animation-iteration-count: 7;
+    animation-direction: normal;
+}
+
+@keyframes highlight-regular-hit {
+    0% { color: red; }
+    50% { color: white; }
+    100% { color: red; }
+}
+
+@-webkit-keyframes highlight-regular-hit {
+    0% { color: red; }
+    50% { color: white; }
+    100% { color: red; }
+}
+
+table.board.my-board td.cell.headhit {
+    background-color: red;
+
+    -webkit-animation-name: highlight-head-hit;
+    -webkit-animation-duration: 0.25s;
+    -webkit-animation-iteration-count: 7;
+    -webkit-animation-direction: normal;
+
+    -moz-animation-name: highlight-head-hit;
+    -moz-animation-duration: 0.25s;
+    -moz-animation-iteration-count: 7;
+    -moz-animation-direction: normal;
+
+    animation-name: highlight-head-hit;
+    animation-duration: 0.25s;
+    animation-iteration-count: 7;
+    animation-direction: normal;
+}
+
+@keyframes highlight-head-hit {
+    0% { background-color: red; }
+    50% { background-color: white; }
+    100% { background-color: red; }
+}
+
+@-webkit-keyframes highlight-head-hit {
+    0% { background-color: red; }
+    50% { background-color: white; }
+    100% { background-color: red; }
+}
+
+table.board.my-board td.cell.missed {
+    background-color: #999;
+
+    -webkit-animation-name: highlight-missed;
+    -webkit-animation-duration: 0.25s;
+    -webkit-animation-iteration-count: 7;
+    -webkit-animation-direction: normal;
+
+    -moz-animation-name: highlight-missed;
+    -moz-animation-duration: 0.25s;
+    -moz-animation-iteration-count: 7;
+    -moz-animation-direction: normal;
+
+    animation-name: highlight-missed;
+    animation-duration: 0.25s;
+    animation-iteration-count: 7;
+    animation-direction: normal;
+}
+
+@keyframes highlight-missed {
+    0% { background-color: #999; }
+    50% { background-color: white; }
+    100% { background-color: #999; }
+}
+
+@-webkit-keyframes highlight-missed {
+    0% { background-color: #999; }
+    50% { background-color: white; }
+    100% { background-color: #999; }
+}
+
+/* plane orientation */
+.plane-orientation {
+    position: relative;
+    width: 470px;
+    height: 100px;
+    top: 10px;
+    margin: auto;
+}
+
+.plane-orientation img {
+    margin: 2px;
+    border: 2px solid #fff;
+}
+
+.plane-orientation img:hover {
+    border: 2px solid #333;
+    cursor: pointer;
+}
+
+.plane-orientation img.selected {
+    border: 2px solid #ff0000;
+}
+
+/* opponent board */
+table.board.opponent-board td.cell.regularhit:after {
+    content: "x";
+    font-size: 20px;
+    color: red;
+}
+
+table.board.opponent-board td.cell.headhit {
+    background-color: red;
+}
+
+table.board.opponent-board td.cell.unhit {
+    background-color: #999;
+}
+
+table.board.opponent-board td.cell.enabled.free:hover {
+    background-color: #ccc;
+}
+
+/* game ended */
+.overflow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.game-ended-actions {
+    position: relative;
+    width: 400px;
+    margin: auto;
+    height: 200px;
+    text-align: center;
+    top: 200px;
+}
+
+.game-ended-actions .game-result {
+    color: red;
+}
+
+.game-ended-actions .opponent-feedback {
+    color: #fff;
+}
+
+/* chat */
+.chat-widget {
+    position: absolute;
+    width: 500px;
+    top: 100px;
+    left: -400px;
+}
+
+.chat-widget.maximize {
+    left: 0;
+
+    -webkit-animation-name: chat-maximize;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+
+    -moz-animation-name: chat-maximize;
+    -moz-animation-duration: 1s;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-direction: normal;
+
+    animation-name: chat-maximize;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+
+@keyframes chat-maximize {
+    0% { left: -400px; }
+    100% { left: 0; }
+}
+
+@-webkit-keyframes chat-maximize {
+    0% { left: -400px; }
+    100% { left: 0; }
+}
+
+.chat-widget.minimize {
+    left: -400px;
+
+    -webkit-animation-name: chat-minimize;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+
+    -moz-animation-name: chat-minimize;
+    -moz-animation-duration: 1s;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-direction: normal;
+
+    animation-name: chat-minimize;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+
+@keyframes chat-minimize {
+    0% { left: 0; }
+    100% { left: -400px; }
+}
+
+@-webkit-keyframes chat-minimize {
+    0% { left: 0; }
+    100% { left: -400px; }
+}
+
+.chat-button {
+    position: relative;
+    float: left;
+    width: 100px;
+    height: 40px;
+    top: 50px;
+    left: -30px;
+    line-height: 40px;
+    font-size: 25px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    background-color: #428bca;
+    color: #fff;
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+}
+
+.chat-button:hover {
+    background-color: #317ab9;
+}
+
+.chat-button.new-message {
+    -webkit-animation-name: new-message;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;
+
+    -moz-animation-name: new-message;
+    -moz-animation-duration: 2s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-direction: normal;
+
+    animation-name: new-message;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+@keyframes new-message {
+    0% { background-color: #428bca; }
+    50% { background-color: #FF9808 ;}
+    100% { background-color: #428bca ;}
+}
+
+@-webkit-keyframes new-message {
+    0% { background-color: #428bca; }
+    50% { background-color: #FF9808 ;}
+    100% { background-color: #428bca ;}
+}
+
+.chat {
+    float: left;
+    width: 400px;
+}
+
+.chat .panel-heading {
+    display: none;
+}
+
+.chat .messages {
+    width: 100%;
+}
+
+.chat .messages .panel-body {
+    padding: 5px 15px !important;
+    text-align: left;
+    height: 200px;
+    overflow: auto;
+}
+
+.chat .messages .sender {
+    width: 100px;
+    font-weight: bold;
+}
+
+.chat .send-message {
+    width: 100%;
+}
+
+.chat .send-message .new-message-box {
+    width: 82%;
+    display: inline;
+}
+
+/* draw */
+.draw-widget {
+    position: absolute;
+    width: 500px;
+    top: 500px;
+    left: -400px;
+}
+
+.draw-widget.maximize {
+    left: 0;
+
+    -webkit-animation-name: draw-maximize;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+
+    -moz-animation-name: draw-maximize;
+    -moz-animation-duration: 1s;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-direction: normal;
+
+    animation-name: draw-maximize;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+
+@keyframes draw-maximize {
+    0% { left: -400px; }
+    100% { left: 0; }
+}
+
+@-webkit-keyframes draw-maximize {
+    0% { left: -400px; }
+    100% { left: 0; }
+}
+
+.draw-widget.minimize {
+    left: -400px;
+
+    -webkit-animation-name: draw-minimize;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+
+    -moz-animation-name: draw-minimize;
+    -moz-animation-duration: 1s;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-direction: normal;
+
+    animation-name: draw-minimize;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+
+@keyframes draw-minimize {
+    0% { left: 0; }
+    100% { left: -400px; }
+}
+
+@-webkit-keyframes draw-minimize {
+    0% { left: 0; }
+    100% { left: -400px; }
+}
+
+.draw-button {
+    position: relative;
+    float: left;
+    width: 100px;
+    height: 40px;
+    top: 50px;
+    left: -30px;
+    line-height: 40px;
+    font-size: 25px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    background-color: #428bca;
+    color: #fff;
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+}
+
+.draw-button:hover {
+    background-color: #317ab9;
+}
+
+.draw-button.new-draw {
+    -webkit-animation-name: new-draw;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;
+
+    -moz-animation-name: new-draw;
+    -moz-animation-duration: 2s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-direction: normal;
+
+    animation-name: new-draw;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+@keyframes new-draw {
+    0% { background-color: #428bca; }
+    50% { background-color: #FF9808 ;}
+    100% { background-color: #428bca ;}
+}
+
+@-webkit-keyframes new-draw {
+    0% { background-color: #428bca; }
+    50% { background-color: #FF9808 ;}
+    100% { background-color: #428bca ;}
+}
+
+.draw {
+    float: left;
+    width: 400px;
+}
+
+.draw .panel-heading {
+    display: none;
+}
+
+.draw .canvas {
+    width: 100%;
+}
+
+.draw .canvas .panel-body {
+    padding: 0 !important;
+    text-align: left;
+    height: 200px;
+    overflow: hidden;
+}
+
+.actions-bar .tools {
+    width: 50%;
+    float: left;
+}
+
+.actions-bar .tools .colors {
+    width: 60px;
+    float: left;
+}
+
+.actions-bar .tools .colors .color {
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin: 2px;
+    cursor: pointer;
+    border:  1px solid #666;
+}
+
+.actions-bar .tools .colors .color:hover {
+    border:  1px solid #999;
+}
+
+.actions-bar .tools .colors .color.selected {
+    border:  1px solid #FF33FC;
+}
+
+.actions-bar .tools .colors .color.white {
+    background-color: white;
+}
+
+.actions-bar .tools .colors .color.black {
+    background-color: black;
+}
+
+.actions-bar .tools .colors .color.blue {
+    background-color: blue;
+}
+
+.actions-bar .tools .colors .color.red {
+    background-color: red;
+}
+
+.actions-bar .tools .colors .color.green {
+    background-color: green;
+}
+
+.actions-bar .tools .colors .color.yellow {
+    background-color: yellow;
+}
+
+.actions-bar .tools .line-widths {
+    width: 40px;
+    float: left;
+}
+
+.actions-bar .tools .line-widths .line-width {
+    margin: 3px;
+    cursor: pointer;
+    border: 1px solid #fff;
+    padding: 1px;
+}
+
+.actions-bar .tools .line-widths .line-width:hover {
+    border: 1px solid #999;
+}
+
+.actions-bar .tools .line-widths .line-width.selected {
+    border: 1px solid #FF33FC;
+}
+
+.actions-bar .tools .line-widths .line-width.small {
+    height: 7px;
+}
+
+.actions-bar .tools .line-widths .line-width.medium {
+    height: 9px;
+}
+
+.actions-bar .tools .line-widths .line-width.large {
+    height: 11px;
+}
+
+
+.actions-bar .tools .line-widths .line-width.small div {
+    height: 3px;
+    background-color: #000;
+}
+
+.actions-bar .tools .line-widths .line-width.medium div {
+    height: 5px;
+    background-color: #000;
+}
+
+.actions-bar .tools .line-widths .line-width.large div {
+    height: 7px;
+    background-color: #000;
+}

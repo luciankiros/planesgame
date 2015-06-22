@@ -1,0 +1,35 @@
+﻿<div ng-show="iAmHost && !opponentConnected">
+    <label class="control-label" for="focusedInput">Send this code to your friend so he can join this game</label>
+    <br />
+    <input type="text" class="form-control" id="focusedInput" readonly value="{{gameCode}}" style="width: 200px; margin: auto; font-size: 20px; cursor: text"/>
+</div>
+
+<div>
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" class="game">
+        <tr>
+            <td>
+                <h2>Me</h2>
+            </td>
+            <td>
+                <h2>Opponent</h2>
+                <h3 ng-hide="gameStarted">({{opponentReady ? 'Ready' : (opponentConnected ? 'Connected' : 'Not Connected')}})</h3>
+            </td>
+        </tr>
+        <tr>
+            <td class="module">
+                <my-board connected="opponentConnected" ready="onReady"></my-board>
+            </td>
+            <td class="module">
+                <opponent-board started="gameStarted" connected="opponentConnected" ready="opponentReady" myturn="isMyTurn" hit="onHit"></opponent-board>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<game-ended winner="iWon" code="gameCode" ng-show="gameEnded"></game-ended>
+
+<opponent-disconnected ng-show="opponentDisconnected && !gameEnded"></opponent-disconnected>
+
+<chat class="chat-widget" connected="opponentConnected" code="gameCode"></chat>
+
+<draw class="draw-widget" connected="opponentConnected" code="gameCode"></draw>

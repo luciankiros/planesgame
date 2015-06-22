@@ -1,0 +1,55 @@
+﻿<table class="board my-board" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+        <td></td>
+        <td>
+            <table cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                    <td class="letter">A</td>
+                    <td class="letter">B</td>
+                    <td class="letter">C</td>
+                    <td class="letter">D</td>
+                    <td class="letter">E</td>
+                    <td class="letter">F</td>
+                    <td class="letter">G</td>
+                    <td class="letter">H</td>
+                    <td class="letter">I</td>
+                    <td class="letter">J</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="numbers">
+            <table cellspacing="0" cellpadding="0" border="0">
+                <tr><td class="number">1</td></tr>
+                <tr><td class="number">2</td></tr>
+                <tr><td class="number">3</td></tr>
+                <tr><td class="number">4</td></tr>
+                <tr><td class="number">5</td></tr>
+                <tr><td class="number">6</td></tr>
+                <tr><td class="number">7</td></tr>
+                <tr><td class="number">8</td></tr>
+                <tr><td class="number">9</td></tr>
+                <tr><td class="number">10</td></tr>
+            </table>
+        </td>
+        <td class="cells">
+            <table>
+                <tr ng-repeat="line in cells">
+                    <td ng-repeat="cell in line" class="cell" ng-class="getCellClass(cell)" ng-mouseover="onMouseOver(cell)" ng-mouseout="onMouseOut(cell)" ng-click="onClick(cell)"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+<div class="plane-orientation" ng-show="stage < 3">
+    <img src="Content/images/plane-orientation-up.png" ng-click="setOrientation('up')" ng-style="getOrientationStyle('up')"/>
+    <img src="Content/images/plane-orientation-right.png" ng-click="setOrientation('right')"  ng-style="getOrientationStyle('right')"/>
+    <img src="Content/images/plane-orientation-left.png" ng-click="setOrientation('left')"  ng-style="getOrientationStyle('left')"/>
+    <img src="Content/images/plane-orientation-down.png" ng-click="setOrientation('down')"  ng-style="getOrientationStyle('down')"/>
+</div>
+
+<button class="btn btn-primary btn-lg" style="margin-top: 30px; margin-left: 15px; float: left;" type="button" ng-click="undo()" ng-disabled="stage == 0" ng-hide="started">Undo</button>
+<button class="btn btn-primary btn-lg" style="margin-top: 30px; margin-right: 15px; float: right;" type="button" ng-click="onReadyPressed()" ng-disabled="stage < 3 || !connected" ng-hide="started">Ready</button>

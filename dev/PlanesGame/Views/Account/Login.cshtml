@@ -1,0 +1,29 @@
+﻿@model PlanesGame.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<hgroup>
+    <h1>@ViewBag.Title</h1>
+    <h2>Use this form to enter your usernmae and password.</h2>
+</hgroup>
+
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+{
+    <fieldset>
+        <legend>Log in Form</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.Username)
+                @Html.TextBoxFor(m => m.Username)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.TextBoxFor(m => m.Password)
+            </li>
+        </ol>
+        <input type="submit" value="Log in"/>
+    </fieldset>
+    
+}

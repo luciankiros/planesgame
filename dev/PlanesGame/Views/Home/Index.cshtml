@@ -1,0 +1,45 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@using System.Web.Optimization;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Planes game</title>
+
+    <link type="text/css" rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/bootstrap-theme.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/toastr.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/style.css" />
+</head>
+<body>
+    
+    <div ng-app="app" class="app">
+        <ng-view></ng-view>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/signalr")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/toastr")
+    @Scripts.Render("~/bundles/canvas")
+    <script type="text/javascript" src="signalr/hubs"></script>
+
+    <script type="text/javascript" src="~/app/common/app.js"></script>
+    <script type="text/javascript" src="~/app/common/services.js"></script>
+
+    <script type="text/javascript" src="~/app/start/js/controllers.js"></script>
+    <script type="text/javascript" src="~/app/start/js/services.js"></script>
+
+    <script type="text/javascript" src="~/app/game/js/controllers.js"></script>
+    <script type="text/javascript" src="~/app/game/js/services.js"></script>
+    <script type="text/javascript" src="~/app/game/js/my-board-directive.js"></script>
+    <script type="text/javascript" src="~/app/game/js/opponent-board-directive.js"></script>
+    <script type="text/javascript" src="~/app/game/js/game-ended-directive.js"></script>
+    <script type="text/javascript" src="~/app/game/js/opponent-disconnected-directive.js"></script>
+    <script type="text/javascript" src="~/app/game/js/chat-directive.js"></script>
+    <script type="text/javascript" src="~/app/game/js/draw-directive.js"></script>
+    
+</body>
+</html>
